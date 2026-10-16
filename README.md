@@ -1,5 +1,8 @@
 # AI Assistant Repo Explorer
 
+> **Looking for the phone assistant?** See [`phone-assistant/`](phone-assistant/README.md)
+> for the chosen repo (NextChat) and the steps to get it on your phone.
+
 A small web app for discovering and comparing the most popular open-source
 **AI assistant** projects on GitHub: chat apps, agent frameworks, coding
 assistants, personal assistants, knowledge/RAG tools and learning resources.

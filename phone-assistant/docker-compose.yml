@@ -1,0 +1,13 @@
+# Runs NextChat (ChatGPTNextWeb/NextChat) from the official image.
+#   cp .env.example .env   # fill in a key and a password
+#   docker compose up -d
+#   open http://<this-machine>:3000 on your phone
+services:
+  nextchat:
+    image: yidadaa/chatgpt-next-web:latest
+    container_name: nextchat
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
