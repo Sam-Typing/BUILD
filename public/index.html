@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Assistant Repo Explorer</title>
+  <meta name="description" content="Discover and compare the most popular open-source AI assistant repositories on GitHub.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">🤖</span>
+        <div>
+          <h1>AI Assistant Repo Explorer</h1>
+          <p class="tagline">The most-starred open-source AI assistants, agents and chat apps on GitHub.</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="refresh" class="btn" type="button" title="Re-fetch from GitHub">↻ Refresh</button>
+        <button id="theme" class="btn btn-ghost" type="button" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="controls" aria-label="Filters">
+      <label class="search">
+        <span class="sr-only">Search</span>
+        <input id="q" type="search" placeholder="Search name, description or topic…" autocomplete="off">
+      </label>
+      <label>Category
+        <select id="category"><option value="">All</option></select>
+      </label>
+      <label>Language
+        <select id="language"><option value="">All</option></select>
+      </label>
+      <label>Sort
+        <select id="sort">
+          <option value="stars">Most stars</option>
+          <option value="forks">Most forks</option>
+          <option value="updated">Recently pushed</option>
+          <option value="name">Name</option>
+        </select>
+      </label>
+      <label>Min stars
+        <input id="minStars" type="number" min="0" step="1000" value="0">
+      </label>
+    </section>
+
+    <section class="stats" id="stats" aria-live="polite"></section>
+
+    <section id="status" class="status" hidden></section>
+
+    <section id="grid" class="grid" aria-label="Repositories"></section>
+
+    <p id="empty" class="empty" hidden>No repositories match these filters.</p>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Data from the <a href="https://docs.github.com/rest/search/search" target="_blank" rel="noopener">GitHub Search API</a>, cached for a few minutes. Star counts are approximate.</p>
+  </footer>
+
+  <template id="card">
+    <article class="card">
+      <header class="card-head">
+        <a class="card-title" target="_blank" rel="noopener"></a>
+        <span class="badge category"></span>
+      </header>
+      <p class="card-desc"></p>
+      <ul class="topics"></ul>
+      <footer class="card-foot">
+        <span class="stat stars" title="Stars">★ <b></b></span>
+        <span class="stat forks" title="Forks">⑂ <b></b></span>
+        <span class="stat lang"><i class="dot"></i><b></b></span>
+        <span class="stat license" title="License"><b></b></span>
+        <span class="stat updated" title="Last push"><b></b></span>
+      </footer>
+    </article>
+  </template>
+
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
