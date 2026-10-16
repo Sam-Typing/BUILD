@@ -61,6 +61,23 @@ Open your NextChat URL in the phone browser, enter the password when asked, then
 It now opens full-screen like a normal app, with chat history saved on the
 phone.
 
+## Voice mode
+
+Three ways to talk instead of type, from simplest to most natural:
+
+1. **Phone dictation (works today, any provider).** Tap the message box and
+   use the microphone key on the iPhone or Android keyboard. Your speech
+   becomes text and is sent as a normal message.
+2. **Read replies aloud (TTS).** In the app go to Settings, enable **TTS**
+   and turn on **Autoplay**. Choose the `Edge-TTS` engine for free voices, or
+   `OpenAI-TTS` if you have an OpenAI key. Replies are then spoken.
+3. **Realtime voice conversation.** In Settings enable **Realtime Chat** and
+   enter an OpenAI key. A headphone icon appears next to the message box;
+   tap it for a live, hands-free, speak-and-listen conversation, like a phone
+   call. This uses OpenAI's realtime model (`gpt-4o-realtime-preview`), so it
+   needs an OpenAI key even if you use Claude for text chat. Azure OpenAI is
+   the only other supported realtime provider.
+
 ## Choosing Claude
 
 In the app, tap the model name above the message box and pick a Claude model.
