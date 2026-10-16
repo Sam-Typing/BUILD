@@ -10,9 +10,13 @@ if [ ! -d "$SRC" ]; then
 fi
 cd "$SRC"
 cp "$HERE/.env" .env.local
-yarn install --frozen-lockfile --ignore-scripts
-yarn build
+if ! yarn install --frozen-lockfile --ignore-scripts; then
+  echo "yarn install failed (often a blocked mirror); falling back to npm"
+  mv yarn.lock yarn.lock.orig
+  npm install --ignore-scripts --no-audit --no-fund --legacy-peer-deps
+fi
+npm run build
 echo
 echo "Starting NextChat on http://localhost:3000"
 echo "On your phone (same Wi-Fi) open http://$(hostname -I 2>/dev/null | awk '{print $1}'):3000"
-exec yarn start
+exec npm start

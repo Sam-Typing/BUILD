@@ -86,5 +86,14 @@ Claude model name) in your environment variables and redeploy.
 
 ## Verified build
 
-The `docs/` folder contains screenshots of this exact setup built from the
-NextChat `main` branch and loaded at phone size.
+NextChat `main` (commit 9b4ac8e) was built from source and loaded at iPhone
+size with the password gate on. Screenshots are in [`../docs/`](../docs/):
+
+| Home | Chat (before password) | Settings |
+| --- | --- | --- |
+| ![Home](../docs/nextchat-phone-home.png) | ![Chat](../docs/nextchat-phone-chat.png) | ![Settings](../docs/nextchat-phone-settings.png) |
+
+Build note: the project's `yarn.lock` pins some packages to Chinese npm
+mirrors. If `yarn install` fails on your network, run
+`npm install --legacy-peer-deps` instead; `run-local.sh` does this
+automatically when yarn fails.
